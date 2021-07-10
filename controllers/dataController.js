@@ -17,7 +17,10 @@ exports.uploadFile = async (req, res) => {
         const worker = new Worker(`./worker/excelWorker.js`, {
           workerData: filePath,
         });
-        worker.on("message", resolve);
+        worker.on("message", (data) => {
+          worker.terminate();
+          resolve(data);
+        });
         worker.on("error", reject);
         worker.on("exit", (code) => {
           if (code !== 0)

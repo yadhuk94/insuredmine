@@ -2,9 +2,10 @@
   "name": "insuredmine",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js",
+    "dev": "nodemone app.js"
   },
   "author": "Yadhu Krishnan",
   "license": "ISC",
@@ -13,7 +14,7 @@
     "express": "^4.17.1",
     "formidable": "^1.2.2",
     "mongoose": "^5.13.2",
-    "uuid": "^8.3.2",
+    "pidusage": "^2.0.21",
     "xlsx": "^0.17.0"
   },
   "devDependencies": {

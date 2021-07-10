@@ -1,14 +1,18 @@
 const express = require("express");
 const dotenv = require("dotenv");
+// const expressStatusMonitor = require("express-status-monitor");
 
 const connectDB = require("./utils/connectdb");
 const dataRouter = require("./routes/dataRoutes");
 const policyRouter = require("./routes/policyRoutes");
+const cpuMonitor = require("./utils/monitorCPU");
 
 dotenv.config({ path: "./config.env" });
 const app = express();
 
 connectDB();
+
+cpuMonitor("main", __dirname);
 
 app.use(express.json());
 
